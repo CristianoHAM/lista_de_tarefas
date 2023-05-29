@@ -6,30 +6,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elementos no JS</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .header h1{
+            margin-bottom: 0px;
+        }
+
+
+        #task-list {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            justify-content: space-around;
+            row-gap: 20px;
+            padding: 0;
+            margin-top: 5px;
+        }
+
+        .task {
+            display: flex;
+            border: 1px solid black;
+            border-radius: 8px;
+            box-shadow: 5px 5px 10px 1px;
+            width: 250px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 3px;
+            padding-left: 40px;
+            /*aplicar pelo chackeBox */
+            text-decoration: line-through;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>ola mundo</h1>
-
-
-    <input type="text" id="nome">
-    <input type="button" value="Enviar" onclick="exibeResultado()"> 
+    <div class="header">
+        <h1>Minhas Tarefas</h1>
+        <form>
+            <input type="text" id="nome">
+            <input type="reset" value="Enviar" onclick="exibeResultado()">
+        </form>
     
-
-    <div class="conteiner">
-        <ol id="resultado">           
+        <ol id="task-list">
         </ol>
     </div>
     <script>
-        var inputNome = document.getElementById("nome");
-        var divResultado = document.getElementById("resultado");
+        let inputNome = document.getElementById("nome");
+        let taskList = document.getElementById("task-list");
         function exibeResultado() {
-            var valorResultado = inputNome.value;
-            divResultado.innerHTML += `<li> ${valorResultado}</li>`;
+            let valorResultado = inputNome.value;
+            let inserir = `
+            <div class="task">
+                <li>${valorResultado}</li> <input type="checkbox" name="" id="">
+            </div>`;
+            taskList.innerHTML += inserir;
         }
     </script>
-
-
 
 </body>
 
